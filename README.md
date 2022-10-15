@@ -7,6 +7,7 @@ I implemented Instance Search using SIFT algorithm. SIFT can extract keypoints a
 3. FLANN based matcher and k-nearest neighbors’ methods were used to match the descriptor vectors of query and database images. For each keypoint - find 2 nearest neighbors.
 4. Then use Lowe’s ratio test for determining good matches. If best match Euclidian distance < 0.7 * second best match distance, then best match is good.
 5. Find outliers. Pass the set of points from both the sets to cv2.findHomography(ptsQ, ptsI, cv2.RANSAC,5.0). The algorithm uses RANSAC with 99.5% confidence applied and return a mask which specifies the inlier and discard outlier points. 
+
 ![Matches](/ph/sift.png)
 6. The confidence score is number of inliers. Sort images in descending order of number of inliers and save it as output for each query.
 7. Try some hyperparameters tuning of FLANN matcher and SIFT to achieve best results on example queries.
